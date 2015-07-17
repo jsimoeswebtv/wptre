@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.22823.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebTestResultsExtensions", "WebTestResultsExtensions\WebTestResultsExtensions.csproj", "{81F1CE74-3C97-4DAB-ABA3-AECFC31155F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebTestResultsExtensions2015", "WebTestResultsExtensions2015\WebTestResultsExtensions2015.csproj", "{E82DB6AB-4F7A-4D33-BB4D-6F0DF4A89D59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonUserControl", "CommonUserControl\CommonUserControl.csproj", "{8C8F9C23-2BAF-4E76-A3D7-6AB339986E52}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,17 +19,31 @@ Global
 		{81F1CE74-3C97-4DAB-ABA3-AECFC31155F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81F1CE74-3C97-4DAB-ABA3-AECFC31155F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81F1CE74-3C97-4DAB-ABA3-AECFC31155F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E82DB6AB-4F7A-4D33-BB4D-6F0DF4A89D59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E82DB6AB-4F7A-4D33-BB4D-6F0DF4A89D59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E82DB6AB-4F7A-4D33-BB4D-6F0DF4A89D59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E82DB6AB-4F7A-4D33-BB4D-6F0DF4A89D59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C8F9C23-2BAF-4E76-A3D7-6AB339986E52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C8F9C23-2BAF-4E76-A3D7-6AB339986E52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C8F9C23-2BAF-4E76-A3D7-6AB339986E52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C8F9C23-2BAF-4E76-A3D7-6AB339986E52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 2
+		SccNumberOfProjects = 4
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs40
 		SccLocalPath0 = .
 		SccProjectUniqueName1 = WebTestResultsExtensions\\WebTestResultsExtensions.csproj
 		SccProjectName1 = WebTestResultsExtensions
 		SccLocalPath1 = WebTestResultsExtensions
+		SccProjectUniqueName2 = WebTestResultsExtensions2015\\WebTestResultsExtensions2015.csproj
+		SccProjectName2 = WebTestResultsExtensions2015
+		SccLocalPath2 = WebTestResultsExtensions2015
+		SccProjectUniqueName3 = CommonUserControl\\CommonUserControl.csproj
+		SccProjectName3 = CommonUserControl
+		SccLocalPath3 = CommonUserControl
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Microsoft.VisualStudio.Shell.Immutable.14.0</name>
+  </assembly>
+  <members>
+    <member name="T:Microsoft.VisualStudio.Shell.AsyncServiceCreatorCallback">
+      <summary>The callback for the async service creator.</summary>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.CommandNavigationHelper">
+      <summary>Saves and restores elements to be focused after interacting with menus and toolbars.</summary>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.CommandNavigationHelper.CommandFocusMode">
+      <summary>Specifies the CommandFocusMode.</summary>
+      <returns>The focus mode.</returns>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.CommandNavigationHelper.CommandFocusModeProperty">
+      <summary>Specifies how the control on which it's set is registered with the CommandFocusManager for handling focus restoration and entering menu mode.</summary>
+    </member>
+    <member name="E:Microsoft.VisualStudio.Shell.CommandNavigationHelper.CommandFocusModePropertyChanged">
+      <summary>Raised when the CommandFocusMode property has changed.</summary>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.CommandNavigationHelper.CommandNavigationOrder">
+      <summary>Allows a control to specify its keyboard navigation cycle order with respect to other command navigable controls. A larger value moves the control later in the cycle list.</summary>
+      <returns>The command navigation order.</returns>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.CommandNavigationHelper.CommandNavigationOrderProperty">
+      <summary>Allows a control to specify its keyboard navigation cycle order with respect to other command navigable controls.  A larger value moves the control later in the cycle list.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.CommandNavigationHelper.GetCommandFocusMode(System.Windows.DependencyObject)">
+      <summary>Gets the command focus mode for the specified element.</summary>
+      <returns>The command focus mode.</returns>
+      <param name="element">The element.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.CommandNavigationHelper.GetCommandNavigationOrder(System.Windows.DependencyObject)">
+      <summary>Gets the command navigation order for the specified element.</summary>
+      <returns>The command navigation order.</returns>
+      <param name="element">The element.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.CommandNavigationHelper.GetIsCommandNavigable(System.Windows.DependencyObject)">
+      <summary>Determins whether the command is navigable.</summary>
+      <returns>True if the command is navigable, otherwise false.</returns>
+      <param name="element">The element.</param>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.CommandNavigationHelper.IsCommandNavigable">
+      <summary>Marks a control as part of the keyboard navigation cycle list for menus/toolbars.</summary>
+      <returns>True if the control is part of the keyboard navigation cycle.</returns>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.CommandNavigationHelper.IsCommandNavigableProperty">
+      <summary>Marks a control as part of the keyboard navigation cycle list for menus/toolbars.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.CommandNavigationHelper.SetCommandFocusMode(System.Windows.DependencyObject,Microsoft.VisualStudio.Shell.CommandNavigationHelper.CommandFocusMode)">
+      <summary>Sets the command focus mode for the element.</summary>
+      <param name="element">The element.</param>
+      <param name="value">The command focus mode.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.CommandNavigationHelper.SetCommandNavigationOrder(System.Windows.DependencyObject,System.Int32)">
+      <summary>Sets the command navigation order for the specified element.</summary>
+      <param name="element">The element.</param>
+      <param name="value">The command navigation order.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.CommandNavigationHelper.SetIsCommandNavigable(System.Windows.DependencyObject,System.Boolean)">
+      <summary>Determines whether or not the command is navigable.</summary>
+      <param name="element">The element.</param>
+      <param name="value">True if the command is navigable, otherwise false.</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.CommandNavigationHelper.CommandFocusMode">
+      <summary>Specifies how the control on which it's set  is registered with CommandFocusManager for handling focus restoration and entering menu mode.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.CommandNavigationHelper.CommandFocusMode.Attached">
+      <summary>The element does not participate in command focus restoration. However, getting focus to this element is tracked and used in command focus restoration of command focus containers, such that focus is never restored to this control when lost by other command focus containers, even if they received focus from this control.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.CommandNavigationHelper.CommandFocusMode.Container">
+      <summary>The element participates in command focus restoration and is considered to be part of the command UI, along with menus and toolbars (when the control is focused InputManager.IsInMenuMode is set and VS keybindings does not work).</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.CommandNavigationHelper.CommandFocusMode.None">
+      <summary>The element does not participate in command focus restoration.</summary>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.HierarchyGraphNodeProperties"></member>
+    <member name="F:Microsoft.VisualStudio.Shell.HierarchyGraphNodeProperties.HierarchyItem"></member>
+    <member name="T:Microsoft.VisualStudio.Shell.IAsyncServiceContainer">
+      <summary>Provides methods to add and remove services.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.IAsyncServiceContainer.AddService(System.Type,Microsoft.VisualStudio.Shell.AsyncServiceCreatorCallback)">
+      <summary>Adds a service.</summary>
+      <param name="serviceType">The type of the service to get.</param>
+      <param name="callback">The callback.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.IAsyncServiceContainer.AddService(System.Type,Microsoft.VisualStudio.Shell.AsyncServiceCreatorCallback,System.Boolean)">
+      <summary>Gets a service.</summary>
+      <param name="serviceType">The type of the service to get.</param>
+      <param name="callback">The callback.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.IAsyncServiceContainer.RemoveService(System.Type)">
+      <summary>Removes the service of the type specified.</summary>
+      <param name="serviceType">The type of service to remove.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.IAsyncServiceContainer.RemoveService(System.Type,System.Boolean)">
+      <summary>Removes the service of the type specified.</summary>
+      <param name="serviceType">The type of service to remove.</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.IAsyncServiceProvider">
+      <summary>Provides a method to get a service asynchronously.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.IAsyncServiceProvider.GetServiceAsync(System.Type)">
+      <summary>Gets a service asynchronously.</summary>
+      <returns>Returns <see cref="T:System.Threading.Tasks.Task`1" />.</returns>
+      <param name="serviceType">Teh type of the service.</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.INonClientArea">
+      <summary>Represents a visual element that may logically contain a non-client Win32 area when WM_NCHITTEST is sent to an HwndSource.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.INonClientArea.HitTest(System.Windows.Point)">
+      <summary>Given a point, determines what the hit test result should be for WM_NCHITTEST.</summary>
+      <returns>The HT* result representing the non-client hit test result, or HTNOWHERE if the point is not within this element. </returns>
+      <param name="point">The point hit, relative to the screen.</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.ISettingsMachineLocalityEvaluator">
+      <summary>Used in conjunction with SharedSettingsAttribute to evaluate whether a property value is machine-local (i.e. should not roam to other machines) at runtime.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.ISettingsMachineLocalityEvaluator.IsMachineLocal(System.String,System.Object)">
+      <summary>Determines whether a property value is machine-local.</summary>
+      <returns>True If the setting is machine-local, otherwise false.</returns>
+      <param name="name">The full name of the setting specified via SharedSettingsAttribute.</param>
+      <param name="value">The current value of the property.</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.IVsManagedImageService">
+      <summary>an interface proffered by SVsImageService that allows direct addition of WPF bitmaps to the image library.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.IVsManagedImageService.AddCustomImage(System.Windows.Media.Imaging.BitmapSource,System.Boolean)">
+      <summary>Adds a custom BitmapSource to the image service.</summary>
+      <returns>A handle which tracks the lifetime of the BitmapSource in the cache, and provides access to the moniker associated with the bitmap.</returns>
+      <param name="bitmap">The bitmap to add.</param>
+      <param name="canTheme">True if the bitmap can be themed, otherwise false.</param>
+    </member>
+  </members>
+</doc>
