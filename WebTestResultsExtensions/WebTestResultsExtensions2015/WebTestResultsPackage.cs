@@ -22,8 +22,9 @@ using System.Globalization;
 using System.Runtime.InteropServices;
 
 using System.Windows.Forms;
+using WebTestResultsExtensions;
 
-namespace WebTestResultsExtensions
+namespace WebTestResultsExtensions2015
 {
     /// <summary>
     /// This is the class that implements the package exposed by this assembly.
@@ -47,7 +48,6 @@ namespace WebTestResultsExtensions
     [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)] // Info on this package for Help/About
     [Guid(WebTestResultsPackageGuids.PackageGuidString)]
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "pkgdef, VS and vsixmanifest are valid VS terms")]
-    [ProvideMenuResource("Menus.ctmenu", 1)]
     public sealed class WebTestResultsPackage : Package
     {
         #region Private Fields
