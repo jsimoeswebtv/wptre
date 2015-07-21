@@ -6,8 +6,8 @@
     <Description xml:space="preserve">This extension allows to see in a descriptive way the web test execution</Description>
     <MoreInfo>https://wptre.codeplex.com</MoreInfo>
     <License>mspl.txt</License>
-    <Icon>WebTestResultsPackage.ico</Icon>
-    <PreviewImage>Resources\WebTestResultsPackage.ico</PreviewImage>
+    <Icon>test_32x_LG.png</Icon>
+    <PreviewImage>test_32x_LG.png</PreviewImage>
     <Tags>WebPerformanceTests</Tags>
   </Metadata>
   <Installation>

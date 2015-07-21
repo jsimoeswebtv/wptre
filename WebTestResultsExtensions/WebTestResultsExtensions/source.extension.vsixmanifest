@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="WebTestResultsExtensions.Joao Simoes.b0941746-5757-47cb-bafc-dfe7f4cccc61" Version="1.0" Language="en-US" Publisher="Joao Simoes" />
+    <Identity Id="WebTestResultsExtensions.Joao Simoes.b0941746-5757-47cb-bafc-dfe7f4cccc61" Version="1.0" Language="en-US" Publisher="João Simões" />
     <DisplayName>WebTestResults Viewer Extension 2013</DisplayName>
     <Description xml:space="preserve">This extension allows to see in a descriptive way the web test execution</Description>
     <MoreInfo>https://wptre.codeplex.com</MoreInfo>
     <License>mspl.txt</License>
-    <Icon>Resources\WebTestResultsPackage.ico</Icon>
-    <PreviewImage>Resources\WebTestResultsPackage.ico</PreviewImage>
+    <Icon>test_32x_LG.png</Icon>
+    <PreviewImage>test_32x_LG.png</PreviewImage>
     <Tags>WebPerformanceTests</Tags>
   </Metadata>
   <Installation>

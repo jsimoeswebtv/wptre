@@ -52,22 +52,13 @@ namespace WebTestResultsExtensions
     {
         #region Private Fields
 
-        private Dictionary<Guid, List<UserControl>> m_controls = new Dictionary<Guid, List<UserControl>>();
+       readonly Dictionary<Guid, List<UserControl>> m_controls = new Dictionary<Guid, List<UserControl>>();
 
         #endregion Private Fields
 
         #region Public Constructors
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="WebTestResultsPackage"/> class.
-        /// </summary>
-        public WebTestResultsPackage()
-        {
-            // Inside this method you can place any initialization code that does not require any
-            // Visual Studio service because at this point the package object is created but not
-            // sited yet inside Visual Studio environment. The place to do all the other
-            // initialization is the Initialize method.
-        }
+       
 
         #endregion Public Constructors
 
@@ -102,7 +93,7 @@ namespace WebTestResultsExtensions
 
         #region Private Methods
 
-        private void WebTesResultViewer_WindowClosed(object sender, WebTestResultViewerExt.WindowClosedEventArgs e)
+        void WebTesResultViewer_WindowClosed(object sender, WebTestResultViewerExt.WindowClosedEventArgs e)
         {
             if (m_controls.ContainsKey(e.WebTestResultViewer.TestResultId))
             {
@@ -110,7 +101,7 @@ namespace WebTestResultsExtensions
             }
         }
 
-        private void WebTestResultViewer_SelectedChanged(object sender, WebTestResultViewerExt.SelectionChangedEventArgs e)
+        void WebTestResultViewer_SelectedChanged(object sender, WebTestResultViewerExt.SelectionChangedEventArgs e)
         {
             WebTestResultViewer x = (WebTestResultViewer)sender;
 
@@ -134,28 +125,28 @@ namespace WebTestResultsExtensions
                             break;
 
                         case "WebTestResultLoopIteration":
-                            resultControl.Update();
+                            resultControl.UpdateGrid();
                             break;
 
                         default:
-                            resultControl.Update();
+                            resultControl.UpdateGrid();
                             break;
                     }
                 }
             }
         }
 
-        private void WebTestResultViewerExt_TestCompleted(object sender, WebTestResultViewerExt.TestCompletedEventArgs e)
+        void WebTestResultViewerExt_TestCompleted(object sender, WebTestResultViewerExt.TestCompletedEventArgs e)
         {
-            string x = "";
+           
         }
 
-        private void WebTestResultViewerExt_WindowCreated(object sender, WebTestResultViewerExt.WindowCreatedEventArgs e)
+        void WebTestResultViewerExt_WindowCreated(object sender, WebTestResultViewerExt.WindowCreatedEventArgs e)
         {
             WindowCreated(e.WebTestResultViewer);
         }
 
-        private void WindowCreated(WebTestResultViewer viewer)
+        void WindowCreated(WebTestResultViewer viewer)
         {
             // Instantiate an instance of the resultControl referenced in the
             // WebPerfTestResultsViewerControl project.
