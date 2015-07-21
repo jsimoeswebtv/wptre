@@ -93,7 +93,7 @@ namespace WebTestResultsExtensions
 
         #region Private Methods
 
-        private static string GetHttpCode(string description)
+        static string GetHttpCode(string description)
         {
             string code = string.Empty;
 
@@ -139,7 +139,7 @@ namespace WebTestResultsExtensions
             return code;
         }
 
-        private static string GetRequestHeader(WebTestRequestHeaderCollection headers)
+        static string GetRequestHeader(WebTestRequestHeaderCollection headers)
         {
             string requestHeader = string.Empty;
             for (int i = 0; i < headers.Count; i++)
@@ -150,7 +150,7 @@ namespace WebTestResultsExtensions
             return requestHeader;
         }
 
-        private static string GetResponseHeader(WebTestResponse response)
+        static string GetResponseHeader(WebTestResponse response)
         {
             string code = GetHttpCode(response.StatusCode.ToString());
 
@@ -163,7 +163,7 @@ namespace WebTestResultsExtensions
             return responseHeader;
         }
 
-        private static string GetResponseStringBody(WebTestResponse body)
+        static string GetResponseStringBody(WebTestResponse body)
         {
             return body.BodyString;
         }

@@ -11,7 +11,7 @@ namespace WebTestResultsExtensions2015
     /// <summary>
     /// WebTestResultsPackage GUID constants.
     /// </summary>
-    internal static class WebTestResultsPackageGuids
+    static class WebTestResultsPackageGuids
     {
         /// <summary>
         /// WebTestResultsPackage GUID string.
