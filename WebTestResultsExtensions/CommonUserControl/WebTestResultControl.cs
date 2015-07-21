@@ -23,6 +23,9 @@ namespace WebTestResultsExtensions
 
         #region Public Constructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WebTestResultControl"/> class.
+        /// </summary>
         public WebTestResultControl()
         {
             InitializeComponent();
@@ -33,11 +36,18 @@ namespace WebTestResultsExtensions
 
         #region Public Methods
 
+        /// <summary>
+        /// Updates the grid.
+        /// </summary>
         public void UpdateGrid()
         {
             this.resultControlDataGridView.Text = "";
         }
 
+        /// <summary>
+        /// Updates the specified web test results.
+        /// </summary>
+        /// <param name="WebTestResults">The web test results.</param>
         public void Update(WebTestRequestResult WebTestResults)
         {
             var sb = new StringBuilder();
@@ -60,6 +70,10 @@ namespace WebTestResultsExtensions
             this.resultControlDataGridView.Rtf = sb.ToString();
         }
 
+        /// <summary>
+        /// Updates the comment.
+        /// </summary>
+        /// <param name="WebTestResults">The web test results.</param>
         public void UpdateComment(WebTestResultComment WebTestResults)
         {
             var sb = new StringBuilder();
@@ -76,6 +90,11 @@ namespace WebTestResultsExtensions
             this.resultControlDataGridView.Rtf = sb.ToString();
         }
 
+        /// <summary>
+        /// Updates the total.
+        /// </summary>
+        /// <param name="x">The x.</param>
+        /// <param name="i">The i.</param>
         public void updateTotal(WebTestRequestResult x, int i)
         {
             var sb = new StringBuilder();
@@ -93,6 +112,11 @@ namespace WebTestResultsExtensions
 
         #region Private Methods
 
+        /// <summary>
+        /// Formats the json.
+        /// </summary>
+        /// <param name="json">The json.</param>
+        /// <returns></returns>
         static string FormatJson(string json)
         {
             int indentation = 0;
@@ -112,6 +136,11 @@ namespace WebTestResultsExtensions
             return String.Concat(result);
         }
 
+        /// <summary>
+        /// Gets the RTF unicode escaped string.
+        /// </summary>
+        /// <param name="s">The s.</param>
+        /// <returns></returns>
         static string GetRtfUnicodeEscapedString(string s)
         {
             var sb = new StringBuilder();
@@ -127,6 +156,11 @@ namespace WebTestResultsExtensions
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Writes the RTF.
+        /// </summary>
+        /// <param name="WebTestResults">The web test results.</param>
+        /// <returns></returns>
         string writeRTF(WebTestRequestResult WebTestResults)
         {
             StringBuilder sb = new StringBuilder();

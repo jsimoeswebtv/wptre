@@ -13,6 +13,11 @@ namespace WebTestResultsExtensions
     {
         #region Public Methods
 
+        /// <summary>
+        /// Gets the cols.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns></returns>
         public static string[] getCols(string input)
         {
             string pattern = @"\/\%\/";
@@ -20,6 +25,11 @@ namespace WebTestResultsExtensions
             return cols;
         }
 
+        /// <summary>
+        /// Gets the rows.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns></returns>
         public static string[] getRows(string input)
         {
             //string pattern = @"\/\%\/\|\%\|";
@@ -46,6 +56,10 @@ namespace WebTestResultsExtensions
     {
         #region Public Methods
 
+        /// <summary>
+        /// Adds the context menu.
+        /// </summary>
+        /// <param name="rtb">The RTB.</param>
         public static void AddContextMenu(this RichTextBox rtb)
         {
             if (rtb.ContextMenuStrip == null)
@@ -62,6 +76,11 @@ namespace WebTestResultsExtensions
             }
         }
 
+        /// <summary>
+        /// Gets the request string body.
+        /// </summary>
+        /// <param name="body">The body.</param>
+        /// <returns></returns>
         public static string GetRequestStringBody(IHttpBody body)
         {
             string result = string.Empty;
@@ -76,6 +95,16 @@ namespace WebTestResultsExtensions
             return result;
         }
 
+        /// <summary>
+        /// Gets the test results.
+        /// </summary>
+        /// <param name="method">The method.</param>
+        /// <param name="urlWithQueryString">The URL with query string.</param>
+        /// <param name="requestHttpVersion">The request HTTP version.</param>
+        /// <param name="requestHeaders">The request headers.</param>
+        /// <param name="requestBody">The request body.</param>
+        /// <param name="response">The response.</param>
+        /// <returns></returns>
         public static string GetTestResults(string method, string urlWithQueryString, string requestHttpVersion, WebTestRequestHeaderCollection requestHeaders, StringHttpBody requestBody, WebTestResponse response)
         {
             string methodAndUrlWithQueryString = method + " " + urlWithQueryString + " " + "HTTP/" + requestHttpVersion;
@@ -93,6 +122,11 @@ namespace WebTestResultsExtensions
 
         #region Private Methods
 
+        /// <summary>
+        /// Gets the HTTP code.
+        /// </summary>
+        /// <param name="description">The description.</param>
+        /// <returns></returns>
         static string GetHttpCode(string description)
         {
             string code = string.Empty;
@@ -139,6 +173,11 @@ namespace WebTestResultsExtensions
             return code;
         }
 
+        /// <summary>
+        /// Gets the request header.
+        /// </summary>
+        /// <param name="headers">The headers.</param>
+        /// <returns></returns>
         static string GetRequestHeader(WebTestRequestHeaderCollection headers)
         {
             string requestHeader = string.Empty;
@@ -150,6 +189,11 @@ namespace WebTestResultsExtensions
             return requestHeader;
         }
 
+        /// <summary>
+        /// Gets the response header.
+        /// </summary>
+        /// <param name="response">The response.</param>
+        /// <returns></returns>
         static string GetResponseHeader(WebTestResponse response)
         {
             string code = GetHttpCode(response.StatusCode.ToString());
@@ -163,6 +207,11 @@ namespace WebTestResultsExtensions
             return responseHeader;
         }
 
+        /// <summary>
+        /// Gets the response string body.
+        /// </summary>
+        /// <param name="body">The body.</param>
+        /// <returns></returns>
         static string GetResponseStringBody(WebTestResponse body)
         {
             return body.BodyString;
