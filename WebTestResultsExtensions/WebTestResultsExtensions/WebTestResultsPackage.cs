@@ -93,6 +93,11 @@ namespace WebTestResultsExtensions
 
         #region Private Methods
 
+        /// <summary>
+        /// Handles the WindowClosed event of the WebTesResultViewer control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="WebTestResultViewerExt.WindowClosedEventArgs"/> instance containing the event data.</param>
         void WebTesResultViewer_WindowClosed(object sender, WebTestResultViewerExt.WindowClosedEventArgs e)
         {
             if (m_controls.ContainsKey(e.WebTestResultViewer.TestResultId))
@@ -101,6 +106,11 @@ namespace WebTestResultsExtensions
             }
         }
 
+        /// <summary>
+        /// Handles the SelectedChanged event of the WebTestResultViewer control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="WebTestResultViewerExt.SelectionChangedEventArgs"/> instance containing the event data.</param>
         void WebTestResultViewer_SelectedChanged(object sender, WebTestResultViewerExt.SelectionChangedEventArgs e)
         {
             WebTestResultViewer x = (WebTestResultViewer)sender;
@@ -136,16 +146,30 @@ namespace WebTestResultsExtensions
             }
         }
 
+        /// <summary>
+        /// Handles the TestCompleted event of the WebTestResultViewerExt control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="WebTestResultViewerExt.TestCompletedEventArgs"/> instance containing the event data.</param>
         void WebTestResultViewerExt_TestCompleted(object sender, WebTestResultViewerExt.TestCompletedEventArgs e)
         {
            
         }
 
+        /// <summary>
+        /// Handles the WindowCreated event of the WebTestResultViewerExt control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="WebTestResultViewerExt.WindowCreatedEventArgs"/> instance containing the event data.</param>
         void WebTestResultViewerExt_WindowCreated(object sender, WebTestResultViewerExt.WindowCreatedEventArgs e)
         {
             WindowCreated(e.WebTestResultViewer);
         }
 
+        /// <summary>
+        /// Windows the created.
+        /// </summary>
+        /// <param name="viewer">The viewer.</param>
         void WindowCreated(WebTestResultViewer viewer)
         {
             // Instantiate an instance of the resultControl referenced in the
