@@ -6,19 +6,13 @@
 
 using EnvDTE;
 using EnvDTE80;
-using Microsoft.VisualStudio;
-using Microsoft.VisualStudio.OLE.Interop;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using Microsoft.VisualStudio.TestTools.LoadTesting;
 using Microsoft.VisualStudio.TestTools.WebTesting;
-using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
 using System.Runtime.InteropServices;
 
 using System.Windows.Forms;
@@ -50,18 +44,11 @@ namespace WebTestResultsExtensions2015
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "pkgdef, VS and vsixmanifest are valid VS terms")]
     public sealed class WebTestResultsPackage : Package
     {
-
         #region Private Fields
 
-        readonly Dictionary<Guid, List<UserControl>> m_controls = new Dictionary<Guid, List<UserControl>>();
+        private readonly Dictionary<Guid, List<UserControl>> m_controls = new Dictionary<Guid, List<UserControl>>();
 
         #endregion Private Fields
-
-        #region Public Constructors
-
-
-
-        #endregion Public Constructors
 
         #region Protected Methods
 
@@ -99,7 +86,7 @@ namespace WebTestResultsExtensions2015
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="WebTestResultViewerExt.WindowClosedEventArgs"/> instance containing the event data.</param>
-        void WebTesResultViewer_WindowClosed(object sender, WebTestResultViewerExt.WindowClosedEventArgs e)
+        private void WebTesResultViewer_WindowClosed(object sender, WebTestResultViewerExt.WindowClosedEventArgs e)
         {
             if (m_controls.ContainsKey(e.WebTestResultViewer.TestResultId))
             {
@@ -112,7 +99,7 @@ namespace WebTestResultsExtensions2015
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="WebTestResultViewerExt.SelectionChangedEventArgs"/> instance containing the event data.</param>
-        void WebTestResultViewer_SelectedChanged(object sender, WebTestResultViewerExt.SelectionChangedEventArgs e)
+        private void WebTestResultViewer_SelectedChanged(object sender, WebTestResultViewerExt.SelectionChangedEventArgs e)
         {
             WebTestResultViewer x = (WebTestResultViewer)sender;
 
@@ -154,9 +141,8 @@ namespace WebTestResultsExtensions2015
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="WebTestResultViewerExt.TestCompletedEventArgs"/> instance containing the event data.</param>
-        void WebTestResultViewerExt_TestCompleted(object sender, WebTestResultViewerExt.TestCompletedEventArgs e)
+        private void WebTestResultViewerExt_TestCompleted(object sender, WebTestResultViewerExt.TestCompletedEventArgs e)
         {
-
         }
 
         /// <summary>
@@ -164,7 +150,7 @@ namespace WebTestResultsExtensions2015
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="WebTestResultViewerExt.WindowCreatedEventArgs"/> instance containing the event data.</param>
-        void WebTestResultViewerExt_WindowCreated(object sender, WebTestResultViewerExt.WindowCreatedEventArgs e)
+        private void WebTestResultViewerExt_WindowCreated(object sender, WebTestResultViewerExt.WindowCreatedEventArgs e)
         {
             WindowCreated(e.WebTestResultViewer);
         }
@@ -173,7 +159,7 @@ namespace WebTestResultsExtensions2015
         /// Windows the created.
         /// </summary>
         /// <param name="viewer">The viewer.</param>
-        void WindowCreated(WebTestResultViewer viewer)
+        private void WindowCreated(WebTestResultViewer viewer)
         {
             // Instantiate an instance of the resultControl referenced in the
             // WebPerfTestResultsViewerControl project.

@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.22823.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebTestResultsExtensions", "WebTestResultsExtensions\WebTestResultsExtensions.csproj", "{81F1CE74-3C97-4DAB-ABA3-AECFC31155F2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebTestResultsExtensions2015", "WebTestResultsExtensions2015\WebTestResultsExtensions2015.csproj", "{E82DB6AB-4F7A-4D33-BB4D-6F0DF4A89D59}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonUserControl", "CommonUserControl\CommonUserControl.csproj", "{8C8F9C23-2BAF-4E76-A3D7-6AB339986E52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebTestResultsExtensions2017", "WebTestResultsExtensions2017\WebTestResultsExtensions2017.csproj", "{459F4ED5-496D-4626-992C-568E4438F2FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,23 +29,15 @@ Global
 		{8C8F9C23-2BAF-4E76-A3D7-6AB339986E52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C8F9C23-2BAF-4E76-A3D7-6AB339986E52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C8F9C23-2BAF-4E76-A3D7-6AB339986E52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{459F4ED5-496D-4626-992C-568E4438F2FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{459F4ED5-496D-4626-992C-568E4438F2FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{459F4ED5-496D-4626-992C-568E4438F2FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{459F4ED5-496D-4626-992C-568E4438F2FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 4
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs40
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = WebTestResultsExtensions\\WebTestResultsExtensions.csproj
-		SccProjectName1 = WebTestResultsExtensions
-		SccLocalPath1 = WebTestResultsExtensions
-		SccProjectUniqueName2 = WebTestResultsExtensions2015\\WebTestResultsExtensions2015.csproj
-		SccProjectName2 = WebTestResultsExtensions2015
-		SccLocalPath2 = WebTestResultsExtensions2015
-		SccProjectUniqueName3 = CommonUserControl\\CommonUserControl.csproj
-		SccProjectName3 = CommonUserControl
-		SccLocalPath3 = CommonUserControl
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3DAD29DC-A7A4-4F9F-B538-8094036A35BE}
 	EndGlobalSection
 EndGlobal
