@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="WebTestResultsExtensions2017.860e95c6-1beb-4721-abd8-749600d07c21" Version="1.0" Language="en-US" Publisher="jsimoeswebtv" />
+        <Identity Id="WebTestResultsExtensions2017.860e95c6-1beb-4721-abd8-749600d07c21" Version="1.1.0.0" Language="en-US" Publisher="jsimoeswebtv" />
         <DisplayName>WebTestResults Viewer Extension 2017</DisplayName>
         <Description xml:space="preserve">This extension allows to see in a descriptive way the web test execution</Description>
         <License>mspl.txt</License>
+        <ReleaseNotes>releaseNotes.md</ReleaseNotes>
         <Icon>test_32x_LG.png</Icon>
         <PreviewImage>test_32x_LG.png</PreviewImage>
         <Tags>WebPerformanceTests</Tags>
@@ -21,5 +22,6 @@
     </Prerequisites>
     <Assets>
         <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+        <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="File" Path="Newtonsoft.Json.dll" AssemblyName="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed" />
     </Assets>
 </PackageManifest>

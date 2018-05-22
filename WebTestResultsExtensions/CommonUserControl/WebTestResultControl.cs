@@ -239,6 +239,8 @@ namespace WebTestResultsExtensions
 
             sb.Append(@" \line ");
             sb.Append(@"\b BODY \b0" + @" \line ");
+
+            this.resultControlDataGridView.Tag = WebTestResults.Response.BodyString;
             if (WebTestResults.Response.ContentType.IndexOf("json", StringComparison.Ordinal) > 0)
             {
                 string Uni = FormatJson(WebTestResults.Response.BodyString);

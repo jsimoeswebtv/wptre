@@ -4,6 +4,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -64,6 +65,16 @@ namespace WebTestResultsExtensions
 
     public static class TestUtils
     {
+        #region Private Fields
+
+        private static RichTextBox myRtb;
+
+        private static SaveFileDialog SaveFileDialog1 = new SaveFileDialog();
+
+        private static SaveFileDialog SaveFileAsJson = new SaveFileDialog();
+
+        #endregion Private Fields
+
         #region Public Methods
 
         /// <summary>
@@ -81,10 +92,17 @@ namespace WebTestResultsExtensions
                 ToolStripMenuItem tsmiCopy = new ToolStripMenuItem("Copy");
                 tsmiCopy.Click += (sender, e) => rtb.Copy();
                 cms.Items.Add(tsmiCopy);
-                ToolStripMenuItem tsmiPaste = new ToolStripMenuItem("Paste");
-                tsmiPaste.Click += (sender, e) => rtb.Paste();
+
+                ToolStripMenuItem tsmiPaste = new ToolStripMenuItem("Save as");
+                tsmiPaste.Click += TsmiPaste_Click;
                 cms.Items.Add(tsmiPaste);
+
+                ToolStripMenuItem tsmiBody = new ToolStripMenuItem("Save Body as json");
+                tsmiBody.Click += TsmiBody_Click;
+                cms.Items.Add(tsmiBody);
+
                 rtb.ContextMenuStrip = cms;
+                myRtb = rtb;
             }
         }
 
@@ -101,6 +119,8 @@ namespace WebTestResultsExtensions
                 //tsmiPaste.Click += (sender, e) => rtb.Paste();
                 //cms.Items.Add(tsmiPaste);
                 rtb.ContextMenuStrip = cms;
+
+                myRtb = rtb;
             }
         }
 
@@ -149,6 +169,44 @@ namespace WebTestResultsExtensions
         #endregion Public Methods
 
         #region Private Methods
+
+        private static string IndentJson(string jsonString)
+        {
+            try
+            {
+                JToken parsedJson = JToken.Parse(jsonString);
+                var beautified = parsedJson.ToString(Formatting.Indented);
+                return beautified;
+            }
+            catch (Exception)
+            {
+                return jsonString;
+            }
+        }
+
+        private static void TsmiBody_Click(object sender, EventArgs e)
+        {
+            SaveFileAsJson.FileOk += SaveFileAsJson_FileOk;
+            SaveFileAsJson.Filter = "json|*.json";
+            SaveFileAsJson.ShowDialog();
+        }
+
+        private static void SaveFileAsJson_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            File.WriteAllText(SaveFileAsJson.FileName, IndentJson((string)myRtb.Tag));
+        }
+
+        private static void TsmiPaste_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog1.FileOk += SaveFileDialog1_FileOk;
+            SaveFileDialog1.Filter = "txt|*.txt";
+            SaveFileDialog1.ShowDialog();
+        }
+
+        private static void SaveFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            myRtb.SaveFile(SaveFileDialog1.FileName, RichTextBoxStreamType.PlainText);
+        }
 
         /// <summary>
         /// Gets the HTTP code.
