@@ -17,7 +17,7 @@ namespace WebTestResultsExtensions
     {
         #region Private Fields
 
-        const string INDENT_STRING = "    ";
+        private const string INDENT_STRING = "    ";
 
         #endregion Private Fields
 
@@ -29,7 +29,29 @@ namespace WebTestResultsExtensions
         public WebTestResultControl()
         {
             InitializeComponent();
+
             resultControlDataGridView.AddContextMenu();
+        }
+
+        public WebTestResultControl(Color back, Color fore)
+        {
+            InitializeComponent();
+            Color defaultBackground = back;
+            Color defaultForeground = fore;
+
+            this.BackColor = defaultBackground;
+            this.ForeColor = defaultForeground;
+            resultControlDataGridView.AddContextMenu(back, fore);
+            foreach (Control child in this.Controls)
+            {
+                child.BackColor = this.BackColor;
+                child.ForeColor = this.ForeColor;
+                foreach (Control item in child.Controls)
+                {
+                    item.BackColor = this.BackColor;
+                    item.ForeColor = this.ForeColor;
+                }
+            }
         }
 
         #endregion Public Constructors
@@ -117,7 +139,7 @@ namespace WebTestResultsExtensions
         /// </summary>
         /// <param name="json">The json.</param>
         /// <returns></returns>
-        static string FormatJson(string json)
+        private static string FormatJson(string json)
         {
             int indentation = 0;
             int quoteCount = 0;
@@ -141,7 +163,7 @@ namespace WebTestResultsExtensions
         /// </summary>
         /// <param name="s">The s.</param>
         /// <returns></returns>
-        static string GetRtfUnicodeEscapedString(string s)
+        private static string GetRtfUnicodeEscapedString(string s)
         {
             var sb = new StringBuilder();
             foreach (var c in s)
@@ -161,7 +183,7 @@ namespace WebTestResultsExtensions
         /// </summary>
         /// <param name="WebTestResults">The web test results.</param>
         /// <returns></returns>
-        string writeRTF(WebTestRequestResult WebTestResults)
+        private string writeRTF(WebTestRequestResult WebTestResults)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(@"\b*************************REQUEST******************************\b0" + @" \line ");
@@ -255,13 +277,13 @@ namespace WebTestResultsExtensions
                     sb.Append("extraction rule results: " + @" \line ");
                 if (ruleResult.Success)
                 {
-                    suc = @"\cf3" + @"Passed\cf1";
+                    suc = @"\b Passed \b0";
                     sb.Append(ruleResult.Name + " - " + suc + @" \line ");
                     sb.Append("Message : " + ruleResult.Message.ToString() + @" \line ");
                 }
                 else
                 {
-                    suc = @"\cf2" + @"False\cf1";
+                    suc = @"\b False \b0";
                     sb.Append(ruleResult.Name + " - " + suc + @" \line ");
                     sb.Append("Message : " + ruleResult.Message.ToString() + @" \line ");
                     sb.Append("Exception : " + ruleResult.Exception + @" \line ");
@@ -278,13 +300,13 @@ namespace WebTestResultsExtensions
                 sb.Append("Validation rule results: " + @" \line ");
                 if (ruleResult.Success)
                 {
-                    suc = @"\cf3" + @"Passed\cf1";
+                    suc = @"\b Passed \b0";
                     sb.Append(ruleResult.Name + " - " + suc + @" \line ");
                     sb.Append("Message : " + ruleResult.Message.ToString() + @" \line ");
                 }
                 else
                 {
-                    suc = @"\cf2" + @"False\cf1";
+                    suc = @"\b False \b0";
                     sb.Append(ruleResult.Name + " - " + suc + @" \line ");
                     sb.Append("Message : " + ruleResult.Message.ToString() + @" \line ");
                     sb.Append("Exception : " + ruleResult.Exception + @" \line ");
@@ -307,6 +329,10 @@ namespace WebTestResultsExtensions
             if (counter > 0)
                 sb.Append(@"\b*******************************************************\b0" + @" \line ");
             return sb.ToString();
+        }
+
+        private void resultControlDataGridView_TextChanged(object sender, EventArgs e)
+        {
         }
 
         #endregion Private Methods

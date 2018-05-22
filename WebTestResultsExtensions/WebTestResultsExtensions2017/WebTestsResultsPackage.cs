@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
 using System.Globalization;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -12,6 +13,7 @@ using EnvDTE;
 using EnvDTE80;
 using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.OLE.Interop;
+using Microsoft.VisualStudio.PlatformUI;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using Microsoft.VisualStudio.TestTools.LoadTesting;
@@ -116,7 +118,10 @@ namespace WebTestResultsExtensions2017
         {
             // Instantiate an instance of the resultControl referenced in the
             // WebPerfTestResultsViewerControl project.
-            WebTestResultControl resultControl = new WebTestResultControl();
+
+            Color defaultBackground = VSColorTheme.GetThemedColor(EnvironmentColors.ToolWindowBackgroundColorKey);
+            Color defaultForeground = VSColorTheme.GetThemedColor(EnvironmentColors.ToolWindowTextColorKey);
+            WebTestResultControl resultControl = new WebTestResultControl(defaultBackground, defaultForeground);
             //resultControl totalResultControl= new resultControl();
             // totalResultControl.Name="full";
 
@@ -124,6 +129,7 @@ namespace WebTestResultsExtensions2017
             System.Diagnostics.Debug.Assert(!m_controls.ContainsKey(viewer.TestResultId));
             List<UserControl> userControls = new List<UserControl>();
             userControls.Add(resultControl);
+
             //userControls.Add(totalResultControl);
 
             // Add Guid to the m_control List to manage Result viewers and controls.
@@ -131,8 +137,12 @@ namespace WebTestResultsExtensions2017
 
             // Add tabs to the playback control.
             resultControl.Dock = DockStyle.Fill;
+
             // totalResultControl.Dock=DockStyle.Fill;
             viewer.AddResultPage(new Guid(), "WebTest Log", resultControl);
+            resultControl.Parent.BackColor = defaultBackground;
+            resultControl.Parent.ForeColor = defaultForeground;
+
             // viewer.AddResultPage(new Guid(), "WebTest full Log", totalResultControl);
         }
 

@@ -1,6 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.WebTesting;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -49,6 +52,13 @@ namespace WebTestResultsExtensions
             }
         }
 
+        public static string IndentJson(string jsonString)
+        {
+            JToken parsedJson = JToken.Parse(jsonString);
+            var beautified = parsedJson.ToString(Formatting.Indented);
+            return beautified;
+        }
+
         #endregion Public Methods
     }
 
@@ -60,6 +70,24 @@ namespace WebTestResultsExtensions
         /// Adds the context menu.
         /// </summary>
         /// <param name="rtb">The RTB.</param>
+        public static void AddContextMenu(this RichTextBox rtb, Color back, Color fore)
+        {
+            if (rtb.ContextMenuStrip == null)
+            {
+                ContextMenuStrip cms = new ContextMenuStrip { ShowImageMargin = false };
+                cms.BackColor = back;
+                cms.ForeColor = fore;
+
+                ToolStripMenuItem tsmiCopy = new ToolStripMenuItem("Copy");
+                tsmiCopy.Click += (sender, e) => rtb.Copy();
+                cms.Items.Add(tsmiCopy);
+                ToolStripMenuItem tsmiPaste = new ToolStripMenuItem("Paste");
+                tsmiPaste.Click += (sender, e) => rtb.Paste();
+                cms.Items.Add(tsmiPaste);
+                rtb.ContextMenuStrip = cms;
+            }
+        }
+
         public static void AddContextMenu(this RichTextBox rtb)
         {
             if (rtb.ContextMenuStrip == null)
@@ -69,9 +97,9 @@ namespace WebTestResultsExtensions
                 ToolStripMenuItem tsmiCopy = new ToolStripMenuItem("Copy");
                 tsmiCopy.Click += (sender, e) => rtb.Copy();
                 cms.Items.Add(tsmiCopy);
-                ToolStripMenuItem tsmiPaste = new ToolStripMenuItem("Paste");
-                tsmiPaste.Click += (sender, e) => rtb.Paste();
-                cms.Items.Add(tsmiPaste);
+                //ToolStripMenuItem tsmiPaste = new ToolStripMenuItem("Paste");
+                //tsmiPaste.Click += (sender, e) => rtb.Paste();
+                //cms.Items.Add(tsmiPaste);
                 rtb.ContextMenuStrip = cms;
             }
         }
@@ -127,7 +155,7 @@ namespace WebTestResultsExtensions
         /// </summary>
         /// <param name="description">The description.</param>
         /// <returns></returns>
-        static string GetHttpCode(string description)
+        private static string GetHttpCode(string description)
         {
             string code = string.Empty;
 
@@ -178,7 +206,7 @@ namespace WebTestResultsExtensions
         /// </summary>
         /// <param name="headers">The headers.</param>
         /// <returns></returns>
-        static string GetRequestHeader(WebTestRequestHeaderCollection headers)
+        private static string GetRequestHeader(WebTestRequestHeaderCollection headers)
         {
             string requestHeader = string.Empty;
             for (int i = 0; i < headers.Count; i++)
@@ -194,7 +222,7 @@ namespace WebTestResultsExtensions
         /// </summary>
         /// <param name="response">The response.</param>
         /// <returns></returns>
-        static string GetResponseHeader(WebTestResponse response)
+        private static string GetResponseHeader(WebTestResponse response)
         {
             string code = GetHttpCode(response.StatusCode.ToString());
 
@@ -212,7 +240,7 @@ namespace WebTestResultsExtensions
         /// </summary>
         /// <param name="body">The body.</param>
         /// <returns></returns>
-        static string GetResponseStringBody(WebTestResponse body)
+        private static string GetResponseStringBody(WebTestResponse body)
         {
             return body.BodyString;
         }

@@ -35,17 +35,22 @@
             // 
             this.resultControlDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.resultControlDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.resultControlDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.resultControlDataGridView.Name = "resultControlDataGridView";
-            this.resultControlDataGridView.Size = new System.Drawing.Size(150, 150);
+            this.resultControlDataGridView.Size = new System.Drawing.Size(200, 185);
             this.resultControlDataGridView.TabIndex = 0;
             this.resultControlDataGridView.Text = "";
+            this.resultControlDataGridView.TextChanged += new System.EventHandler(this.resultControlDataGridView_TextChanged);
             // 
             // WebTestResultControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.resultControlDataGridView);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "WebTestResultControl";
+            this.Size = new System.Drawing.Size(200, 185);
             this.ResumeLayout(false);
 
         }
